@@ -1,0 +1,153 @@
+<html>
+	<head>
+		<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=default'></script>
+		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+		<style>
+  			@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600&display=swap');
+
+			body {
+			font-family: 'Orbitron', sans-serif;
+			background: #000;
+			color: #fff;
+			background-image: url('https://www.transparenttextures.com/patterns/stardust.png'); /* Subtle starry texture */
+			}
+
+			.container {
+			margin: 0 auto;
+			padding: 60px 20%;
+			}
+
+			h1, h2 {
+			text-align: center;
+			color: #FFC107; /* Star Wars yellow */
+			text-shadow: 0 0 10px rgba(255, 193, 7, 0.7); /* Glow effect for Star Wars vibe */
+			}
+
+			a {
+			color: #00B7EB; /* Lightsaber blue for links */
+			text-decoration: none;
+			}
+
+			a:hover {
+			text-shadow: 0 0 5px #00B7EB; /* Blue glow on hover */
+			}
+
+			ul {
+			list-style-type: disc;
+			margin-top: 20px;
+			margin-bottom: 20px;
+			}
+
+			ul ul {
+			margin-left: 20px;
+			list-style-type: circle;
+			}
+
+			li {
+			margin-top: 25px;
+			}
+
+			.section {
+			margin-top: 50px;
+			}
+
+			figure {
+			text-align: center;
+			}
+
+			img {
+			display: inline-block;
+			margin-top: 20px;
+			margin-bottom: 20px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="container">
+			<h1>Galaxy Editor Milestone Report</h1>
+			<p>Work by: Sultan Jamalbekov, Ryan Trac, Alex Benny, Ruben Gonzalez</p>
+
+			<h2>Summary of Accomplishments</h2>
+			<ul>
+				<li>Started with open source code by Eric Lin.</li>
+				<li>The original code statically generated a galaxy and launched real-time interactive render in the browser.</li>
+				<div style="display: flex; flex-direction: column; justify-content: center; align-items: center;">
+					<img src="images/original.png" width="400px"/>
+					<figcaption>Original galaxy render</figcaption>
+				</div>
+				<li>Implemented real-time parameter toggling for galaxy features like arm pitch, bar length, halo density, and star size variance.</li>
+				<table style="width: 100%; text-align: center; border-collapse: collapse;">
+					<tr>
+						<td style="text-align: center;">
+							<img src="images/controls_before.png" width="200px"/>
+							<figcaption>Controls before (can only navigate the render))</figcaption>
+						</td>
+						<td style="text-align: center;">
+							<img src="images/controls_after.png" width="200px"/>
+							<figcaption>Controls after (can redefine the galaxy)</figcaption>
+						</td>
+					</tr>
+				</table>
+				<li>Added a new object type: nebulae, with density and scale parameters for enhanced visual depth.</li>
+				<li>Developed custom artistic shaders (e.g., black-white, invert, comic, rainbow cycle, heatmap) with UI switching for different effects.</li>
+				<li>Created a stable interactive demo allowing users to adjust parameters and shaders in real time, with regeneration on changes.</li>
+			</ul>
+
+			<h2>Preliminary Results</h2>
+			<ul>
+				<li>The demo generates diverse galaxies: e.g., barred spirals with halos, varied arm tightness, and region-based colors (bluer arms for young stars).</li>
+				<li>Nebulae add glowing clouds in arms/core, tunable for prominence (higher density = more vibrant star-forming regions).</li>
+				<div style="display: flex; flex-direction: column; justify-content: center; align-items: center;">
+					<img src="images/nebulae.png" width="400px"/>
+					<figcaption>The new nebulae object</figcaption>
+				</div>
+				<li>Shaders transform visuals: black-white for contrast, invert for negative effect, comic for 2D cartoon with outlines, rainbow cycle for animated hues, heatmap for thermal density mapping.</li>
+				<div style="display: flex; flex-direction: column; align-items: center;">
+				<table style="width: 100%; text-align: center; border-collapse: collapse;">
+					<tr>
+						<td colspan="2" style="text-align: center;">
+							<img src="images/default.png" width="400px"/>
+							<figcaption>Default (from original project)</figcaption>
+						</td>
+					</tr>
+					<tr>
+						<td style="text-align: center;">
+							<img src="images/black&white.png" width="400px"/>
+							<figcaption>Black & White</figcaption>
+						</td>
+						<td style="text-align: center;">
+							<img src="images/inverse.png" width="400px"/>
+							<figcaption>Inverse</figcaption>
+						</td>
+					</tr>
+					<tr>
+						<td style="text-align: center;">
+							<img src="images/heatmap.png" width="400px"/>
+							<figcaption>Heatmap</figcaption>
+						</td>
+						<td style="text-align: center;">
+							<img src="images/rainbowcycle.png" width="400px"/>
+							<figcaption>RainbowCycle</figcaption>
+						</td>
+					</tr>
+				</table>
+			</div>
+				<li>Performance is smooth (high FPS) with real-time updates, building intuition on galactic physics through experimentation.</li>
+			</ul>
+
+			<h2>Progress Reflection Relative to Plan</h2>
+			<ul>
+				<li>Original plan: Merge 2D canvas input for procedural generation with shaders by milestone.</li>
+				<li>Accomplished: Built on static render to create interactive parameter-based generation and multiple custom shaders; added nebulae object.</li>
+				<li>Challenges: Integrating 2D canvas for user-drawn input and physically realistic shaders proved more difficult than expected, requiring deeper Three.js/GLSL study.</li>
+				<li>Glad to have a stable, enhanced demo for the milestone, exceeding baseline with real-time toggles and artistic features.</li>
+			</ul>
+
+			<h2>Updated Work Plan before presentation</h2>
+			<ul>
+				<li>Focus on studying Three.js and shaders; implement 2D canvas input for user-defined galaxy shapes; integrate with procedural generation.</li> 
+				<li>Merge canvas input with shaders; add more physically realistic shader options; finalize interactive render and custom effects; prepare presentation and peer reviews.</li>
+			</ul>
+		</div>
+	</body>
+</html>
